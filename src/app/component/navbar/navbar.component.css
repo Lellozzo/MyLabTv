@@ -1,0 +1,48 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  transition: 0.3s;
+  margin-bottom: 5%;
+}
+
+nav h2,
+nav a.nav-link {
+  color: white;
+}
+.mr-3 {
+  margin-right: 30px;
+}
+nav a.nav-link:hover {
+  color: #dddddd;
+  font-weight: bold;
+}
+
+.brand {
+  display: contents;
+}
+.navbar-toggler {
+  color: white;
+  font-size: xx-large;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: #f1563c;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  background-color: black;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+.dropdown-menu a:hover {
+  background-color: black;
+  font-weight: bold;
+}
+
+.navbar.isDropDownMenu {
+  background-color: black;
+}

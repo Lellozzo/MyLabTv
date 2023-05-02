@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(13, 13, 17);
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 17, 1) 36%,
+    rgba(9, 17, 23, 1) 50%,
+    rgba(13, 13, 17, 1) 64%
+  );
+  color: #dddddd;
+}
+
+.active {
+  color: red;
+}
