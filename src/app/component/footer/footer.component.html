@@ -4,20 +4,33 @@
       <div class="col-md-5">
         <h5 class="mb-3">Follow Us</h5>
         <div class="d-flex">
-          <a href="https://www.facebook.com/" class="me-3">
-            <i class="bi bi-facebook fs-3"></i>
+          <a
+            name="facebook"
+            href="https://www.facebook.com/npizii"
+            target="_blank"
+            class="me-3"
+          >
+            <i class="social-footer bi bi-facebook fs-3"></i>
           </a>
-          <a href="https://www.instagram.com/">
-            <i class="bi bi-instagram fs-3"></i>
+          <a
+            name="instagram"
+            href="https://www.instagram.com/nico_piz"
+            target="_blank"
+            class="me-3"
+          >
+            <i class="social-footer bi bi-instagram fs-3"></i>
+          </a>
+          <a name="github" href="https://github.com/Lellozzo" target="_blank">
+            <i class="social-footer bi bi-github fs-3"></i>
           </a>
         </div>
       </div>
       <div class="col-md-3">
         <h5 class="mb-3">Link utili</h5>
         <ul class="list-unstyled">
-          <li><a href="#">Privacy policy</a></li>
-          <li><a href="#">Cookie policy</a></li>
-          <li><a href="#">Contatti</a></li>
+          <li><a href="javascript:void(0)">Privacy policy</a></li>
+          <li><a href="javascript:void(0)">Cookie policy</a></li>
+          <li><a href="javascript:void(0)">Contatti</a></li>
         </ul>
       </div>
       <div class="col-md-3">
@@ -28,15 +41,24 @@
               alt="Logo"
               width="30"
               height="30"
-              class="d-inline-block align-text-top"
+              class="logo-footer d-inline-block align-text-top"
             />
           </a>
           My LabTv
         </h5>
 
-        <p>Progetto finale per il corso Front-end LabFor Training School</p>
+        <p>
+          Progetto finale per il corso Front End Development di
+          <span class="bold"
+            ><a href="https://www.labfortraining.it/" target="_blank"
+              >LabForTraining</a
+            ></span
+          >
+        </p>
       </div>
     </div>
   </div>
-  <p class="copy">&copy; {{ currentYear }} Nicolò Pizii</p>
+  <p class="copy">
+    &copy; {{ currentYear }} by <span class="bold">Nicolò Pizii</span>
+  </p>
 </footer>

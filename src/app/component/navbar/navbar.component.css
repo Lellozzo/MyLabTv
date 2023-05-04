@@ -1,8 +1,8 @@
 .navbar {
   position: sticky;
   top: 0;
-  transition: 0.3s;
-  margin-bottom: 5%;
+  z-index: 100;
+  transition: ease-in-out 0.1s;
 }
 
 nav h2,

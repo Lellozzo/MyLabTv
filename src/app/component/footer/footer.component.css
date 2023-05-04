@@ -1,7 +1,34 @@
 footer {
   background-color: black;
 }
+
+footer a {
+  text-decoration: none;
+  color: white;
+  transition: ease-in-out 0.2s;
+}
+
+footer a:hover {
+  color: #f1563c;
+}
 .copy {
   margin-bottom: 0;
   text-align: center;
+}
+.bold {
+  font-weight: bold;
+}
+.social-footer {
+  color: #f1563c;
+  transition: ease-in-out 0.3s;
+}
+
+.social-footer:hover {
+  color: white;
+}
+.logo-footer {
+  transition: 0.3s;
+}
+.logo-footer:hover {
+  transform: scale(1.3);
 }
