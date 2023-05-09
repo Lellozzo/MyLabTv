@@ -19,13 +19,14 @@
       >
     </div>
     <button
-      class="navbar-toggler"
+      class="navbar-toggler dropdown"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNav"
       aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      (click)="isDropdownOpen = !isDropdownOpen; navBarBlack()"
     >
       <span class="navbar-dark"><i class="bi bi-list"></i></span>
     </button>
@@ -80,6 +81,9 @@
               <a class="dropdown-item" href="#">La mia collezione</a>
             </li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <input type="text" />
         </li>
       </ul>
     </div>

@@ -8,6 +8,10 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './component/home/home.component';
 import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
 import { ContattiComponent } from './component/contatti/contatti.component';
+import { HomeCarouselTrendingMovieComponent } from './component/home-carousel-trending-movie/home-carousel-trending-movie.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +20,13 @@ import { ContattiComponent } from './component/contatti/contatti.component';
     FooterComponent,
     HomeComponent,
     MovieDetailComponent,
-    ContattiComponent
+    ContattiComponent,
+    HomeCarouselTrendingMovieComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

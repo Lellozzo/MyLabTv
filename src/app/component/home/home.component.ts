@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +12,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 mouseMoved: boolean = false;
 videoStarted:boolean=false
 events:string[] = ['click', 'scroll', 'mousemove']
+mostraElemento:boolean = true;
+
 constructor(private elRef: ElementRef){}
 
-
+@HostListener('window:resize', ['$event'])
+  onResize(event:any) {
+    this.mostraElemento = window.innerWidth >= 800;
+  }
 /* FIX
  Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first. h
 */
@@ -41,6 +46,11 @@ onMouseMove() {
     this.videoStarted = true;
     
   }
+}
+
+getMarginTop(): number {
+  console.log(this.homeVideo.nativeElement.offsetHeight)
+  return this.homeVideo.nativeElement.offsetHeight + 30;
 }
 
 }

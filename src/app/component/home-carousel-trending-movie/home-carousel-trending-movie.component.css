@@ -1,0 +1,14 @@
+.card {
+  position: relative;
+}
+.card-body {
+  position: absolute;
+  bottom: 0;
+  background-color: #000000a1;
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.card:hover .card-body {
+  opacity: 1;
+}

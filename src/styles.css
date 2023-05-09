@@ -18,3 +18,7 @@ body {
 .active {
   color: red;
 }
+
+.brandColor {
+  color: #f1563c;
+}

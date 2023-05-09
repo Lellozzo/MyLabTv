@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div *ngFor="let movie of trendingMovies">
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="{{ 'https://image.tmdb.org/t/p/w500' + movie.poster_path }}"
+            alt="{{ movie.title }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text">{{ movie.overview }}</p>
+            <a href="#" class="btn btn-primary">Guarda il trailer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngFor="let m of trendingMovies"
+  class="card my-card-carousel"
+  style="width: 18rem"
+>
+  <img class="card-img-top" src="..." alt="Card image cap" />
+  <div class="card-body my-card-carousel-body">
+    <h5 class="card-title">{{ m.title }}</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

@@ -29,7 +29,7 @@
 }
 
 .content {
-  position: absolute;
+  /* position: absolute; */
   z-index: 5;
   bottom: 20px;
   color: #f1f1f1;
@@ -37,19 +37,50 @@
   margin-left: 40px;
 }
 
+.spacer {
+  height: 40vw;
+}
+
 .content-container {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /* position: relative; */
   inset: 0;
-  height: 100%;
   width: 100%;
   background-color: transparent;
   z-index: 3;
+  margin-top: 12%;
+}
+
+.my-search {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: x-large;
+}
+
+.my-search-container {
+  max-width: 450px;
+  margin-left: 50px;
+}
+
+#my-input-search {
+  border-radius: 0.375rem;
+  border: 1px solid #f1563c;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 @media only screen and (min-width: 1200px) {
   .content {
-    position: absolute;
+    /* position: absolute; */
     bottom: 10vw;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .content h1 {
+    /* position: absolute; */
+    font-size: 4rem;
   }
 }
 

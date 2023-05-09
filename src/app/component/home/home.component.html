@@ -2,15 +2,32 @@
   <video #homeVideo preload="auto" autoplay muted loop id="homeVideo">
     <source src="../../../assets/video/home_video2.mp4" type="video/mp4" />
   </video>
+
   <div class="content-container">
     <div class="content">
-      <h1>Goditi lo spettacolo del grande cinema</h1>
-      <h2>sul divano di casa</h2>
+      <h1>Il grande <span class="brandColor">Cinema</span></h1>
+      <h2>dal divano di <span class="brandColor">Casa</span></h2>
+    </div>
+    <div *ngIf="mostraElemento" class="input-group mb-3 my-search-container">
+      <div class="input-group-prepend">
+        <span class="input-group-text my-search" id="basic-addon1"
+          ><i class="bi bi-search"></i
+        ></span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        id="my-input-search"
+        placeholder="Cerca"
+        aria-label="Cerca"
+        aria-describedby="basic-addon1"
+      />
     </div>
   </div>
 </section>
 
 <div class="container homeContainer">
+  <app-home-carousel-trending-movie></app-home-carousel-trending-movie>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum veritatis ex
   natus itaque consequatur, sapiente eius perspiciatis quam obcaecati! Maxime,
   eius. Quo sapiente consectetur nemo non laborum nihil laboriosam corrupti.
