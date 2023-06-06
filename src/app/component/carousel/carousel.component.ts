@@ -11,9 +11,7 @@ import { Movie, Person, ResponseMovie, ResponsePerson, ResponseTv, Tv } from 'sr
 })
 export class CarouselComponent implements OnInit{
   trendingMedia: any
-  // trendingMedia: Movie[] | Tv[] | Person[] = [];
-// trendingMedia?:  (Person | Movie  | Tv)[] = []
-// trendingMedia: (Movie | Tv | Person)[] = [];
+
 personCarousel: boolean = false
 isMovie: boolean = false
 isDown: boolean = false;
@@ -27,6 +25,14 @@ logged:boolean = false
 @Input() carouselRegion: string = "IT";
   
   constructor(private mediaService: MediaService, private authService: AuthService){}
+
+  ngOnInit(): void {
+    this.trending(this.carouselMedia, this.carouselTime, this.carouselRegion)
+    this.authService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
+      this.logged = isLoggedIn;
+    });
+    
+  }
   
 //accedo all'elemento container delle card per gestire lo scorrimento con le frecce e con il mouse
  @ViewChild('container') container!: ElementRef;
@@ -60,47 +66,6 @@ onMouseUp() {
   this.isDown = false;
 }
 
-// trending(media:string, time:string, region:string){
-// this.mediaService.getTrending(media, time, region).subscribe(data =>{
-//   console.log(data)
-//   if(data.results.length > 0 && data.results[0].media_type === "person"){
-//     console.log(data.results[0].media_type)
-//     this.personCarousel = true
-// this.trendingMedia = data.results 
-// return
-//   }
-//   this.trendingMedia = data.results;
-// })
-// }
-
-// trending(media: string, time: string, region: string) {
-//   this.mediaService.getTrending(media, time, region).subscribe((data: ResponseMovie | ResponseTv | ResponsePerson)  => {
-//     console.log(data);
-//     if (data.results.length > 0 && data.results[0].media_type === 'person') {
-//       console.log(data.results[0].media_type);
-//       this.personCarousel = true;
-//       this.trendingMedia = data.results as Person[];
-//       return;
-//     }
-//     this.trendingMedia = data.results as (Movie | Tv)[];
-//   });
-// }
-
-
-
-// trending(media: string, time: string, region: string) {
-//   this.mediaService.getTrending(media, time, region).subscribe((data: ResponseMovie | ResponseTv | ResponsePerson)  => {
-//     console.log(data);
-//     if (data.results.length > 0 && data.results[0].media_type === 'person') {
-//       console.log(data.results[0].media_type);
-//       this.personCarousel = true;
-//       this.trendingMedia = data.results as Person[];
-//       return;
-//     }
-//     this.trendingMedia = data.results as (Movie | Tv)[];
-//   });
-// }
-
 
 trending(media: string, time: string, region: string) {
   this.mediaService.getTrending(media, time, region).subscribe((data: ResponseMovie | ResponseTv | ResponsePerson)  => {
@@ -123,14 +88,7 @@ trending(media: string, time: string, region: string) {
   });
 }
 
-
-  ngOnInit(): void {
-    this.trending(this.carouselMedia, this.carouselTime, this.carouselRegion)
-    this.authService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
-      this.logged = isLoggedIn;
-    });
-    
-  }
+ 
 
   acquista(med: Movie | Tv) {
     this.mediaService.buy(med)?.subscribe(m => {

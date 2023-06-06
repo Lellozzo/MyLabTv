@@ -7,9 +7,7 @@ export interface ResponseMovie {
     total_results: number
   }
   
-  
-  
-  export interface Movie {
+export interface Movie {
     adult: boolean
     backdrop_path: string
     id: number
@@ -52,11 +50,7 @@ export interface ResponseMovie {
     origin_country: string[]
   }
 
-  export type MediaI = Movie | Tv;
-
-//  export interface MediaAcquistato extends Movie, Tv {
-//     userId: number;
-//   }
+export type MediaI = Movie | Tv;
 
 export interface MediaAcquistato {
   id?: number;
@@ -65,14 +59,14 @@ export interface MediaAcquistato {
   media: MediaI | MediaDetail | SimilarFilm | SimilarTv
 }
 
-  export interface ResponsePerson {
+export interface ResponsePerson {
     page: number
     results: Person[]
     total_pages: number
     total_results: number
   }
   
-  export interface Person {
+export interface Person {
     adult: boolean
     id: number
     name: string
@@ -85,7 +79,7 @@ export interface MediaAcquistato {
     known_for: KnownFor[]
   }
   
-  export interface KnownFor {
+export interface KnownFor {
     adult: boolean
     backdrop_path: string
     id: number
@@ -103,7 +97,7 @@ export interface MediaAcquistato {
     vote_count: number
   }
   
-  export interface MovieDetail {
+export interface MovieDetail {
     adult: boolean
     backdrop_path: string
     belongs_to_collection: any
@@ -131,31 +125,30 @@ export interface MediaAcquistato {
     vote_count: number
   }
   
-  export interface Genre {
+export interface Genre {
     id: number
     name: string
   }
   
-  export interface ProductionCompany {
+ export interface ProductionCompany {
     id: number
     logo_path: string
     name: string
     origin_country: string
   }
   
-  export interface ProductionCountry {
+export interface ProductionCountry {
     iso_3166_1: string
     name: string
   }
   
-  export interface SpokenLanguage {
+export interface SpokenLanguage {
     english_name: string
     iso_639_1: string
     name: string
   }
 
-  //
-  export interface TvDetail {
+export interface TvDetail {
     adult: boolean
     backdrop_path: string
     created_by: CreatedBy[]
@@ -190,7 +183,7 @@ export interface MediaAcquistato {
     vote_count: number
   }
   
-  export interface CreatedBy {
+export interface CreatedBy {
     id: number
     credit_id: string
     name: string
@@ -198,27 +191,12 @@ export interface MediaAcquistato {
     profile_path: string
   }
   
-  export interface Genre {
+export interface Genre {
     id: number
     name: string
   }
   
-  export interface LastEpisodeToAir {
-    id: number
-    name: string
-    overview: string
-    vote_average: number
-    vote_count: number
-    air_date: string
-    episode_number: number
-    production_code: string
-    runtime: number
-    season_number: number
-    show_id: number
-    still_path: string
-  }
-  
-  export interface NextEpisodeToAir {
+export interface LastEpisodeToAir {
     id: number
     name: string
     overview: string
@@ -233,7 +211,22 @@ export interface MediaAcquistato {
     still_path: string
   }
   
-  export interface Network {
+export interface NextEpisodeToAir {
+    id: number
+    name: string
+    overview: string
+    vote_average: number
+    vote_count: number
+    air_date: string
+    episode_number: number
+    production_code: string
+    runtime: number
+    season_number: number
+    show_id: number
+    still_path: string
+  }
+  
+export interface Network {
     id: number
     logo_path: string
     name: string
@@ -241,12 +234,12 @@ export interface MediaAcquistato {
   }
   
  
-  export interface ProductionCountry {
+export interface ProductionCountry {
     iso_3166_1: string
     name: string
   }
   
-  export interface Season {
+export interface Season {
     air_date: string
     episode_count: number
     id: number
@@ -256,21 +249,21 @@ export interface MediaAcquistato {
     season_number: number
   }
   
-  export interface SpokenLanguage {
+export interface SpokenLanguage {
     english_name: string
     iso_639_1: string
     name: string
   }
 
-  export type MediaDetail = MovieDetail | TvDetail;
+export type MediaDetail = MovieDetail | TvDetail;
 
-  //
-  export interface VideoResponse {
+  
+export interface VideoResponse {
     id: number
     results: Video[]
   }
   
-  export interface Video {
+export interface Video {
     iso_639_1: string
     iso_3166_1: string
     name: string
@@ -283,14 +276,14 @@ export interface MediaAcquistato {
     id: string
   }
 
-  export interface SimilarMediaResponse {
+export interface SimilarMediaResponse {
     page: number
     results: SimilarFilm[] | SimilarTv[]
     total_pages: number
     total_results: number
   }
   
-  export interface SimilarFilm {
+export interface SimilarFilm {
     adult: boolean
     backdrop_path: string
     genre_ids: number[]
@@ -307,8 +300,7 @@ export interface MediaAcquistato {
     vote_count: number
   }
   
-  
-  export interface SimilarTv {
+export interface SimilarTv {
     adult: boolean
     backdrop_path?: string
     genre_ids: number[]
@@ -325,7 +317,7 @@ export interface MediaAcquistato {
     vote_count: number
   }
 
-  export interface PersonDetail {
+export interface PersonDetail {
     adult: boolean
     also_known_as: string[]
     biography: string
@@ -343,12 +335,12 @@ export interface MediaAcquistato {
     movie_credits: MovieCredits
   }
   
-  export interface MovieCredits {
+export interface MovieCredits {
     cast: Cast[]
     crew: Crew[]
   }
   
-  export interface Cast {
+export interface Cast {
     adult: boolean
     backdrop_path?: string
     genre_ids: number[]
@@ -368,7 +360,7 @@ export interface MediaAcquistato {
     order: number
   }
 
-  export interface Crew {
+ export interface Crew {
     adult: boolean
     backdrop_path?: string
     genre_ids: number[]
