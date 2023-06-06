@@ -1,0 +1,58 @@
+<router-outlet></router-outlet>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2>{{ carouselLabel }}</h2>
+      <div
+        class="d-flex overflow-auto"
+        #container
+        (mousedown)="onMouseDown($event)"
+        (mousemove)="onMouseMove($event)"
+        (mouseup)="onMouseUp()"
+      >
+        <div *ngFor="let m of trendingMedia" class="over-visi">
+          <div class="card" style="width: 12rem">
+            <img
+              class="card-img"
+              [src]="
+                personCarousel
+                  ? 'https://image.tmdb.org/t/p/w500' + m.profile_path
+                  : 'https://image.tmdb.org/t/p/w500' + m.poster_path
+              "
+              alt=" {{ m.title || m.name }}"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">{{ m.title || m.name }}</h5>
+              <a
+                [routerLink]="
+                  isMovie
+                    ? '/film/' + m.id
+                    : (personCarousel ? '/attori/' : '/serietv/') + m.id
+                "
+                class="btn"
+                >Info</a
+              >
+
+              <a
+                *ngIf="!personCarousel && logged"
+                (click)="acquista(m)"
+                class="btn"
+                >Buy</a
+              >
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="carousel-arrow left-arrow" (click)="prevSlide()">
+            <i class="bi bi-chevron-left"></i>
+          </span>
+
+          <span class="carousel-arrow right-arrow" (click)="nextSlide()">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

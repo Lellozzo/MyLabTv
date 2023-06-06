@@ -1,0 +1,175 @@
+<div class="form-container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="username">Email:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="email"
+        formControlName="email"
+        placeholder="Inserisci la tua email"
+      />
+      <div
+        *ngIf="
+          loginForm.get('email')?.invalid &&
+          (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+        "
+      >
+        <div
+          class="text-danger"
+          *ngIf="loginForm.get('email')?.hasError('required')"
+        >
+          La email è richiesta.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="loginForm.get('email')?.hasError('pattern')"
+        >
+          Inserisci una email valida
+        </div>
+      </div>
+    </div>
+    <div class="form-group passwordForm">
+      <label for="password">Password:</label>
+      <input
+        class="form-control"
+        type="{{ showPassword ? 'text' : 'password' }}"
+        id="password"
+        formControlName="password"
+        placeholder="Inserisci la tua password"
+      />
+      <i
+        (click)="togglePasswordVisibility()"
+        [ngClass]="{
+          'bi bi-eye-slash': showPassword,
+          'bi bi-eye': !showPassword
+        }"
+      >
+      </i>
+
+      <div
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          (loginForm.get('password')?.dirty ||
+            loginForm.get('password')?.touched)
+        "
+      >
+        <div
+          class="text-danger"
+          *ngIf="loginForm.get('password')?.hasError('required')"
+        >
+          La password è richiesta.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="loginForm.get('password')?.hasError('pattern')"
+        >
+          La password deve contenere almeno 8 caratteri, una lettera maiuscola,
+          una lettera minuscola, un numero e un carattere speciale.
+        </div>
+      </div>
+    </div>
+    <button class="btn" type="submit" [disabled]="loginForm.invalid">
+      Login
+    </button>
+    <p>
+      Non sei ancora registrato?
+      <a [routerLink]="['../register']">Effettua la registrazione</a>
+    </p>
+  </form>
+</div>
+
+<!-- <div class="form-container">
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="il tuo nome utente"
+        required
+        minlength="3"
+        #usernameInput="ngModel"
+      />
+      <div
+        *ngIf="
+          usernameInput.invalid &&
+          (usernameInput.dirty || usernameInput.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="usernameInput.hasError('required')">
+          L'username è obbligatorio.
+        </div>
+        <div *ngIf="usernameInput.hasError('minlength')">
+          L'username deve contenere almeno 3 caratteri.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        class="form-control"
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="la tua password"
+        required
+        
+        #passwordInput="ngModel"
+      />
+    </div>
+    <div
+      *ngIf="
+        passwordInput.invalid &&
+        (passwordInput?.dirty || passwordInput?.touched)
+      "
+      class="text-danger"
+    >
+      <div *ngIf="passwordInput.hasError('required')">
+        La password è obbligatoria.
+      </div>
+      <div *ngIf="passwordInput.hasError('pattern')">
+        La password deve contenere almeno un carattere e un numero.
+      </div>
+    </div>
+    <button class="btn" type="submit" [disabled]="loginForm.invalid">
+      Login
+    </button>
+    <p>
+      Non sei ancora registrato?
+      <a [routerLink]="['../register']">Effettua la registrazione</a>
+    </p>
+  </form>
+</div> -->
+
+<!-- <form>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      [(ngModel)]="username"
+      name="username"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      [(ngModel)]="password"
+      name="password"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+<p>Non sei ancora registrato? <a href="#">Effettua la registrazione</a></p> -->

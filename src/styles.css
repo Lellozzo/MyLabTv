@@ -1,8 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
-* {
-  box-sizing: border-box;
-}
 
 body {
   background: rgb(13, 13, 17);
@@ -21,4 +17,130 @@ body {
 
 .brandColor {
   color: #f1563c;
+}
+
+.fix-padding {
+  padding-left: 200px;
+}
+
+.card {
+  position: relative;
+  margin-right: 15px;
+  margin-left: 15px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  height: 100%;
+}
+.card img {
+  height: 100%;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card-body {
+  position: absolute;
+  bottom: 0;
+  background-color: #000000ce;
+  transition: 0.4s;
+  opacity: 0;
+  width: 100%;
+}
+
+.card:hover .card-body {
+  opacity: 1;
+}
+
+.btn {
+  background-color: #fb7a63;
+  margin-right: 12px;
+}
+.waiting {
+  height: 100vw;
+}
+
+.contentContainer {
+  background: rgb(13, 13, 17);
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 17, 0.9746399780615371) 19%,
+    rgba(9, 17, 23, 0.7925671489298844) 41%,
+    rgba(13, 13, 17, 0.42281924977022056) 61%
+  );
+}
+
+.contentInfoContainer {
+  padding: 10%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.form-container {
+  max-width: 750px;
+  height: 750px;
+  padding-top: 65px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container form {
+  max-width: 450px;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-container p {
+  font-size: small;
+}
+
+.form-container p a {
+  font-style: italic;
+  color: #dddddd;
+}
+
+.passwordForm {
+  position: relative;
+}
+
+.passwordForm i {
+  position: absolute;
+  right: 10px;
+  top: 52.25%;
+}
+
+.sectionDetailContainer {
+  margin-top: 62vw;
+  margin-bottom: 40px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.sectionDetailContainer2 {
+  margin-top: 20vw;
+  margin-bottom: 40px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 35px;
+  margin-top: 30px;
 }

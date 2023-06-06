@@ -1,0 +1,68 @@
+.container-fluid {
+  margin-bottom: 50px;
+}
+
+.card {
+  position: relative;
+  margin-right: 15px;
+  margin-left: 15px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card-body {
+  position: absolute;
+  bottom: 0;
+  background-color: #000000ce;
+  transition: 0.4s;
+  opacity: 0;
+  width: 100%;
+}
+
+.card:hover .card-body {
+  opacity: 1;
+}
+
+.carousel-arrow {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  position: absolute;
+  font-size: 2.8rem;
+}
+
+.left-arrow {
+  left: 10%;
+}
+
+.right-arrow {
+  right: 10%;
+}
+.d-flex {
+  align-items: center;
+  height: 370px;
+}
+
+.btn {
+  background-color: #fb7a63;
+  margin-right: 12px;
+}
+
+/* Crea la nuova barra di scorrimento */
+.d-flex.overflow-auto::-webkit-scrollbar {
+  height: 10px;
+}
+.d-flex.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.404);
+}
+.d-flex.overflow-auto::-webkit-scrollbar-track {
+  background-color: transparent;
+}

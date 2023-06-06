@@ -7,7 +7,7 @@
   object-fit: cover;
 }
 
-.video-container {
+.homeVideoContainer {
   position: absolute;
   top: 0;
   width: 100%;
@@ -46,7 +46,7 @@
   flex-direction: column;
   /* position: relative; */
   inset: 0;
-  width: 100%;
+  max-width: 100%;
   background-color: transparent;
   z-index: 3;
   margin-top: 12%;
@@ -64,7 +64,13 @@
   margin-left: 50px;
 }
 
-#my-input-search {
+.my-search-container2 {
+  max-width: 300px;
+  margin-bottom: 90px;
+}
+
+#my-input-search,
+#my-input-search2 {
   border-radius: 0.375rem;
   border: 1px solid #f1563c;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -87,5 +93,17 @@
 @media only screen and (max-width: 500px) {
   div.content h1 h2 {
     font-size: smaller;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .homeContainer {
+    max-width: 1550px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .content-container {
+    margin-left: 12%;
   }
 }

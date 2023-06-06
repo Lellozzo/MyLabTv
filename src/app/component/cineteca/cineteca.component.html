@@ -1,0 +1,17 @@
+<h1>Ciao {{ loggedUser?.user?.username }}</h1>
+<h2 class="oneline">La Tua Cineteca personale:</h2>
+<div class="acquistatiContainer">
+  <div *ngFor="let ma of mediaAcquistati" class="over-visi">
+    <div class="card" style="width: 12rem">
+      <img
+        class="card-img"
+        [src]="getPosterPath(ma.media)"
+        alt="{{ getTypeTitle(ma.media) }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ getTypeTitle(ma.media) }}</h5>
+        <a (click)="deleteMedia(ma.id!)" class="btn">Elimina</a>
+      </div>
+    </div>
+  </div>
+</div>

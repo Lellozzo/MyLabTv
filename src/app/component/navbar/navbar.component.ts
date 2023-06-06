@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { NavbarService } from 'src/app/services/navbar.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,36 +15,28 @@ backgroundColor: string = 'transparent';
 // gestione colori link attivi
 activeLink: string = 'home';
 // gestione colore navbar con dropdownmenu attivo
-isDropdownOpen: boolean = false;
+public isDropdownOpen: boolean = false;
+profilemenu: boolean = false
+
+logged: boolean = false
+
+loggedUser = this.authService.getLoggedUser();
+
+
+constructor(private navbarService: NavbarService, private authService: AuthService) {
+
+}
 
   ngOnInit(): void {
+    this.loggedUser = this.authService.getLoggedUser();
     this.title = environment.TITOLO
+    this.authService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
+      this.logged = isLoggedIn;
+    });
+
   }
   
-   
-  
-    constructor() { }
-  
-    // Scrolling verticale page e navbar e cambio colore
-    // @HostListener('window:scroll', ['$event'])
-    // onWindowScroll(event:any) {
-    //   if (window.pageYOffset > 50) {
-    //     this.backgroundColor = 'black';
-    //   } if(window.pageYOffset < 50 && this.isDropdownOpen) {this.backgroundColor= 'black'}
-    //   else {
-    //     this.backgroundColor = 'transparent';
-    //   }
-    // }
-
-//     @HostListener('window:scroll', ['$event'])
-// onWindowScroll(event: any) {
-//   if (window.pageYOffset < 50 && !this.isDropdownOpen) {
-//     this.backgroundColor = 'transparent';
-//   } else {
-//     this.backgroundColor = 'black';
-//   }
-// }
-
+ 
 @HostListener('window:scroll', ['$event'])
 onWindowScroll(event: any) {
   if (this.isDropdownOpen) {
@@ -58,10 +52,21 @@ onWindowScroll(event: any) {
 }
 
     navBarBlack(){
-    if (this.isDropdownOpen){
       this.backgroundColor = 'black'
     }
       
+
+    asideOpen(){
+      this.navbarService.toggleAside();
+    }
+
+    logout(){
+      console.log("click")
+      this.authService.logout()
+    }
+
+    openprofilemenu(){
+      this.profilemenu = !this.profilemenu
     }
   }
   

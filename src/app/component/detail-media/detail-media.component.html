@@ -1,0 +1,116 @@
+<div [ngClass]="{ 'black-background': isVideo }">
+  <div *ngIf="!loaded" id="spinner-box" class="text-center">
+    <div class="spinner-border text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <main
+    class="videoContainer"
+    id="videoContainer
+"
+    *ngIf="mediaDetail && !isVideo && loaded"
+    #trailerSection
+  >
+    <section
+      class="heroTrailerContainer"
+      [style.background-image]="
+        'url(https://image.tmdb.org/t/p/w1280' + mediaDetail.backdrop_path + ')'
+      "
+    >
+      <div class="contentContainer">
+        <div class="contentInfoContainer">
+          <img
+            src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{
+              mediaDetail.poster_path
+            }}"
+            data-src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{
+              mediaDetail.poster_path
+            }}"
+            data-srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{
+              mediaDetail.poster_path
+            }} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{
+              mediaDetail.poster_path
+            }} 2x"
+            srcset="
+              https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{mediaDetail.poster_path}} 1x,
+              https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{mediaDetail.poster_path}} 2x
+            "
+            data-loaded="true"
+            alt="{{ filmDetail?.title || tvDetail?.name }}"
+            appImgMissingDirective
+          />
+          <div class="content__data">
+            <h2>
+              {{ filmDetail?.title || tvDetail?.name }} ({{
+                filmDetail?.release_date || tvDetail?.first_air_date
+                  | date : "YYYY"
+              }})
+            </h2>
+            <h3>{{ mediaDetail.tagline }}</h3>
+
+            <h4>Descrizione</h4>
+            <p>{{ mediaDetail.overview }}</p>
+
+            <button
+              *ngIf="trailer && trailer.length > 0"
+              mat-raised-button
+              aria-label="Trailer"
+              (click)="play()"
+              class="play-trailer btn"
+            >
+              <i class="bi bi-play-fill"></i> Trailer
+            </button>
+            <button
+              *ngIf="logged"
+              (click)="acquista(mediaDetail)"
+              mat-raised-button
+              aria-label="Trailer"
+              class="play-trailer btn"
+            >
+              <i class="bi bi-cart-fill"></i> Buy
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div *ngIf="isVideo" class="videoWrapper" style="--aspect-ratio: 3 / 4">
+    <i class="bi bi-x-circle-fill" (click)="closeVideo()"></i>
+    <iframe
+      [src]="videoUrl"
+      allowfullscreen
+      width="560"
+      height="315"
+      frameborder="0"
+      allowfullscreen="allowfullscreen"
+    ></iframe>
+  </div>
+  <!-- <div *ngIf="isVideo" class="videoPlayer">
+  <iframe [src]="videoUrl" allowfullscreen></iframe>
+</div> -->
+
+  <div
+    *ngIf="loaded"
+    class="container sectionDetailContainer"
+    [class.fixMarginTop]="isVideo"
+  >
+    <h2 class="oneline">Potrebbero piacerti...</h2>
+    <div *ngFor="let sm of similarMedia" class="over-visi">
+      <div class="card" style="width: 12rem">
+        <img
+          class="card-img"
+          [src]="getPosterPath(sm)"
+          alt="{{ getTypeTitle(sm) }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ getTypeTitle(sm) }}</h5>
+
+          <a (click)="goToDetails(sm.id)" class="btn">Info</a>
+          <a (click)="acquista(sm)" *ngIf="logged" class="btn">Buy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!loaded" class="waiting"></div>

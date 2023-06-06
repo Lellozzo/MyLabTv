@@ -1,5 +1,48 @@
+<div class="position-relative">
+  <aside class="aside-nav" [ngClass]="{ hidden: !isDropdownOpen }">
+    <div class="logo-container">
+      <img
+        (click)="asideOpen()"
+        (click)="isDropdownOpen = !isDropdownOpen"
+        src="../../../assets/img/logo.png"
+        alt="Logo LabTv"
+      />
+    </div>
+    <div class="aside-content">
+      <ul>
+        <li>
+          <a routerLink="/home">Home</a>
+        </li>
+        <li>
+          <a routerLink="/contatti">Contatti</a>
+        </li>
+      </ul>
+    </div>
+    <div class="aside-account">
+      <div *ngIf="profilemenu" class="dropdown-content">
+        <a *ngIf="!logged" routerLink="/login"
+          ><span><i class="bi bi-box-arrow-in-left"></i></span> Login</a
+        >
+        <a
+          *ngIf="logged && loggedUser"
+          [routerLink]="['users', loggedUser.user.username, 'cineteca']"
+          >La mia cineteca</a
+        >
+        <a *ngIf="logged" routerLink="/home" (click)="logout()"
+          ><span><i class="bi bi-box-arrow-in-right"></i></span> Logout</a
+        >
+      </div>
+
+      <i (click)="openprofilemenu()" class="bi bi-person-circle profile"></i>
+      <p *ngIf="logged && loggedUser">
+        Benvenuto <span class="username">{{ loggedUser.user.username }}</span>
+      </p>
+    </div>
+  </aside>
+</div>
+
 <nav
-  class="navbar navbar-expand-lg navbar-light"
+  class="navbar navbar-expand-lg"
   [ngStyle]="{ 'background-color': backgroundColor }"
   [ngClass]="{ 'isDropDownMenu ': isDropdownOpen }"
 >
@@ -8,7 +51,7 @@
       <a class="navbar-brand" href="#">
         <img
           src="../../../assets/img/logo.png"
-          alt="Logo"
+          alt="Logo LabTv"
           width="60"
           height="60"
           class="d-inline-block align-text-top"
@@ -19,16 +62,12 @@
       >
     </div>
     <button
-      class="navbar-toggler dropdown"
+      class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
       (click)="isDropdownOpen = !isDropdownOpen; navBarBlack()"
+      (click)="asideOpen()"
     >
-      <span class="navbar-dark"><i class="bi bi-list"></i></span>
+      <span><i class="bi bi-list"></i></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
@@ -54,11 +93,7 @@
           <a
             class="nav-link dropdown-toggle"
             [ngClass]="{ active: activeLink === 'profilo' }"
-            (click)="
-              activeLink = 'profilo';
-              isDropdownOpen = !isDropdownOpen;
-              navBarBlack()
-            "
+            (click)="activeLink = 'profilo'; navBarBlack()"
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
@@ -70,20 +105,23 @@
             class="dropdown-menu dropdown-menu-end mt-auto"
             aria-labelledby="navbarDropdown"
           >
-            <li class="position-static">
-              <a class="dropdown-item" href="#">Login</a>
+            <li *ngIf="!logged" class="position-static">
+              <a class="dropdown-item" routerLink="/login">Login</a>
             </li>
-            <li class="position-static">
-              <a class="dropdown-item" href="#">Logout</a>
+            <li *ngIf="logged" class="position-static">
+              <a class="dropdown-item" routerLink="/home" (click)="logout()"
+                >Logout</a
+              >
             </li>
             <li><hr class="dropdown-divider" /></li>
-            <li class="position-static">
-              <a class="dropdown-item" href="#">La mia collezione</a>
+            <li *ngIf="logged" class="position-static">
+              <a
+                class="dropdown-item"
+                [routerLink]="['users', loggedUser?.user?.username, 'cineteca']"
+                >La mia collezione</a
+              >
             </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <input type="text" />
         </li>
       </ul>
     </div>

@@ -1,9 +1,10 @@
-<section class="video-container">
+<section class="homeVideoContainer">
   <video #homeVideo preload="auto" autoplay muted loop id="homeVideo">
+    <!-- risorsa preferibilmente da caricare su uno static webserver -->
     <source src="../../../assets/video/home_video2.mp4" type="video/mp4" />
   </video>
 
-  <div class="content-container">
+  <div class="content-container" [ngClass]="{ 'fix-padding': isOpen }">
     <div class="content">
       <h1>Il grande <span class="brandColor">Cinema</span></h1>
       <h2>dal divano di <span class="brandColor">Casa</span></h2>
@@ -14,11 +15,14 @@
           ><i class="bi bi-search"></i
         ></span>
       </div>
+
       <input
+        [(ngModel)]="search"
+        (ngModelChange)="getResultsSearch()"
         type="text"
         class="form-control"
         id="my-input-search"
-        placeholder="Cerca"
+        placeholder="Cerca tra i nostri film"
         aria-label="Cerca"
         aria-describedby="basic-addon1"
       />
@@ -26,138 +30,50 @@
   </div>
 </section>
 
-<div class="container homeContainer">
-  <app-home-carousel-trending-movie></app-home-carousel-trending-movie>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum veritatis ex
-  natus itaque consequatur, sapiente eius perspiciatis quam obcaecati! Maxime,
-  eius. Quo sapiente consectetur nemo non laborum nihil laboriosam corrupti.
-  Nisi fuga corporis repudiandae asperiores eius excepturi, aliquam
-  necessitatibus molestiae possimus atque architecto, minus iusto vel illum
-  obcaecati laudantium eveniet ea repellat, dolorem aut. Facere labore totam ea
-  quaerat ullam. Ad molestias nisi dolor repudiandae ab, dolorum, voluptate sed
-  odit sapiente reiciendis harum, ut ea voluptatem. Porro nemo, officiis ipsum
-  dolores quibusdam assumenda cumque quidem! Quibusdam vero suscipit ullam est.
-  Iusto distinctio ipsam doloremque est? Quae eos, repellendus expedita
-  voluptate tempora voluptates veritatis laborum quibusdam dolorum dicta
-  inventore omnis quod, animi aspernatur sequi quidem aliquid. Perspiciatis odio
-  maiores facilis quidem? Voluptas doloremque aspernatur ea sunt eveniet aliquam
-  nemo inventore hic quod eligendi, consequuntur mollitia, dolorem temporibus
-  distinctio vitae quibusdam aliquid architecto porro iste! Accusantium porro
-  ut, voluptatem numquam in eum? Modi accusamus illo perspiciatis molestias
-  optio ratione quas blanditiis, deserunt ullam, eum amet impedit ab, laboriosam
-  facilis est. Vitae, ipsum ratione. Doloremque inventore vitae suscipit saepe
-  esse quaerat consequuntur quidem. Nostrum ex ut dolores, id, aut ipsa aliquid
-  atque, eaque natus quo eos voluptate modi inventore sapiente quae voluptas
-  delectus voluptatem fuga maiores expedita sint dolorem maxime fugit aliquam.
-  Voluptas. Odio mollitia a quasi aperiam blanditiis asperiores animi eveniet
-  cum assumenda sequi sit, laudantium possimus quae et. Fugiat nisi dolores
-  nihil tempore possimus, quia, sed saepe a incidunt deserunt minus! Quae vero,
-  deserunt molestias perspiciatis ullam pariatur iste iusto. Dolor quasi eveniet
-  in facere, rem laboriosam iure blanditiis hic? Cum sed suscipit distinctio
-  totam consequuntur, modi iure facere saepe minima. Sint ea dolorem aperiam.
-  Quibusdam aspernatur odit inventore distinctio sapiente animi cupiditate natus
-  fugiat laudantium, nihil hic illum at modi similique non tenetur corporis
-  voluptatem veniam voluptate molestias rerum obcaecati. Ratione ab iusto
-  aperiam totam, dolor neque necessitatibus minus doloremque voluptates
-  explicabo animi eaque. Voluptate id harum magnam iure aut quae. Minima nulla
-  soluta et veritatis ullam fugit quos hic! Facere, in dolor. Sit saepe officia
-  nesciunt modi assumenda atque dolores quo doloremque animi laborum? Eveniet
-  corporis similique inventore recusandae est sit incidunt laudantium! Nostrum
-  accusamus pariatur architecto perferendis provident. Placeat quae nostrum
-  aliquam eos architecto nesciunt velit omnis vitae! Sint nostrum numquam
-  molestiae doloribus ex tempora non nesciunt magnam inventore minima, sit
-  quaerat, animi ullam. Sed, nemo. Culpa, nihil. Eum odit ea tempore amet ut,
-  rerum ullam voluptatem dolore soluta esse culpa eveniet itaque? Deleniti,
-  dolore sapiente. Culpa esse excepturi quod exercitationem beatae dignissimos
-  at, nulla modi quaerat laboriosam! Autem enim reiciendis culpa aut eligendi
-  eveniet, eaque voluptate molestiae nisi. Quod eaque tenetur nihil nemo
-  perferendis. Alias dicta unde itaque quae fugiat, animi assumenda consectetur,
-  nam natus ipsa ut. Facere corrupti ad dolores aspernatur? Eaque ipsum vitae
-  necessitatibus voluptatum nemo id soluta temporibus, possimus accusantium
-  corporis, molestias suscipit deserunt quibusdam rerum mollitia ea, amet ipsa
-  ullam facilis provident ab! Beatae eveniet veniam labore quae maxime?
-  Accusamus quidem magni quasi rerum incidunt, enim architecto non veritatis
-  vitae nihil excepturi. Iure asperiores labore, aut totam blanditiis explicabo
-  quis aliquam accusamus fugit. Delectus aperiam pariatur reprehenderit dolorum
-  provident minus, praesentium atque excepturi. Iste animi expedita unde quaerat
-  recusandae, cum et, aliquam reiciendis, error placeat veritatis iusto. Unde
-  doloremque distinctio illum aspernatur dignissimos. Fugiat rem id assumenda
-  ad, repudiandae ducimus est eum numquam accusamus dicta quasi, error vel.
-  Laboriosam a minus deleniti magnam odit nulla? Autem harum doloribus facilis
-  ipsam! Laborum, nobis corporis! Maxime accusamus eius aut nemo obcaecati
-  expedita! Animi neque sed, ducimus voluptatibus eligendi, sint magni quibusdam
-  corrupti hic cupiditate soluta a alias asperiores tenetur commodi. Aliquid
-  deserunt natus unde enim? Dolor qui hic minus vel at inventore saepe
-  voluptatem, quod itaque perspiciatis veniam dolorum ad fuga ipsam est omnis
-  voluptate natus suscipit. Labore saepe, autem incidunt qui minima blanditiis
-  eum! Eius sint qui debitis libero, quis corrupti non sapiente numquam
-  temporibus odio earum ipsum labore veniam a rerum accusantium incidunt
-  doloremque voluptas illo dolore! Atque excepturi consectetur minima corporis
-  modi. Quibusdam itaque consectetur, quas, officia error quis magnam, sed sequi
-  aut neque fugiat! Expedita, pariatur ullam perspiciatis dolores non sapiente a
-  voluptatum amet odit autem maxime! Odio nemo veniam molestias! Saepe at maxime
-  repudiandae illum soluta iusto omnis nulla officia laboriosam ad libero
-  impedit architecto, hic quo voluptatem autem quaerat esse delectus porro totam
-  temporibus quasi reprehenderit. Iure, eaque inventore. Eius, voluptatibus sit,
-  minima deleniti sequi dolorem officiis saepe consequatur optio quae deserunt
-  sed quis voluptatum ex aliquid accusamus ab nihil corporis. Dolores, adipisci.
-  Perferendis assumenda accusamus vero? Tempore, eaque. Sapiente voluptatum
-  provident perspiciatis adipisci culpa accusamus iure illum inventore
-  molestias, animi odio sit cupiditate commodi voluptatem ducimus quisquam
-  voluptas obcaecati eaque itaque aliquid, amet nulla sunt, repellat cum.
-  Aspernatur. Ut temporibus, cum iste recusandae quibusdam, ad sapiente labore
-  pariatur, qui id nostrum in eum voluptas voluptatem harum. Ducimus numquam
-  nobis officia aliquid facere velit sed vitae sunt optio natus? Eius tempore
-  distinctio dolorum? Cum libero rem, optio repellat similique aut modi quae
-  dolor? Cumque id possimus molestias molestiae nostrum laborum quibusdam hic
-  dolore provident, tenetur, maxime iste explicabo sed. Architecto praesentium
-  voluptatem quis mollitia commodi nemo optio at sequi cumque rerum non deleniti
-  corrupti, repellendus nulla voluptates repellat aut dolores, totam sint minima
-  unde, neque iusto eos? Impedit, quia? Dignissimos et reprehenderit recusandae
-  ipsum! Provident, debitis quam suscipit ipsa asperiores possimus illum vitae
-  fuga, ad voluptate sint odio tempore quo consequuntur dolore perspiciatis
-  rerum placeat vel sed nisi amet? Porro tenetur officiis labore suscipit et
-  architecto hic beatae odit quos corrupti. Quibusdam obcaecati facilis
-  consequatur esse dolores inventore accusamus unde vero omnis cum, labore
-  deserunt, perferendis sunt excepturi et? Officia, alias dolores hic cum earum
-  totam fugiat dolor nisi provident molestiae, repellat exercitationem
-  dignissimos repudiandae! Tempore laboriosam aperiam, sunt unde, quo dolorem
-  consectetur incidunt maiores molestias corrupti, nostrum rem! Nam, nobis
-  accusantium? Excepturi dolores doloribus error fugit nemo ullam earum saepe!
-  Molestiae assumenda praesentium mollitia nihil, qui deserunt a saepe porro
-  aperiam ipsam quis omnis ullam dicta, amet laborum? Dicta, ipsam repellat!
-  Dolor quas repellat dicta ratione suscipit voluptatem harum ab corporis quo
-  itaque veniam quia quos rem totam laudantium modi saepe, facilis dolorum illum
-  atque nemo? Laborum, reiciendis. Aspernatur nostrum, vitae sed adipisci itaque
-  eos totam doloribus ipsam dolore esse error voluptas ex quasi animi neque
-  velit voluptatum dicta culpa eveniet nihil porro distinctio officiis quae.
-  Ratione, debitis. Optio incidunt sapiente tempora odio, sit distinctio dicta
-  ex harum error amet totam ab voluptates nobis culpa est nam cum fugit enim
-  eius! Optio possimus saepe id natus. Quae, tenetur! Voluptas voluptates quis
-  ipsum repudiandae, itaque nihil sint architecto, eos magni laborum obcaecati
-  expedita qui dolorem eveniet corrupti esse. Sed vel qui possimus quia
-  aspernatur similique illum, laboriosam ut odit. Quasi perspiciatis magni
-  maxime consectetur voluptate atque. Ullam aliquid hic iusto voluptate facilis
-  aliquam debitis! Rerum, aliquid? Ipsum quidem animi saepe! Reprehenderit atque
-  enim architecto ea. Quod esse error deserunt. Beatae impedit dolores natus
-  maiores, earum tenetur quidem, nemo asperiores optio ex cum nulla vel? Quod
-  qui neque reiciendis quibusdam dignissimos, quae quas ea id nostrum nisi atque
-  illo fugit. Asperiores delectus cupiditate libero, id omnis aut tenetur
-  aperiam. Eum totam vitae non, magni, blanditiis deleniti facilis eveniet
-  mollitia aperiam ullam rerum dolorum necessitatibus a animi ducimus, ad quos
-  reiciendis? Sunt, quae sit veniam molestias voluptatibus saepe consequatur ad
-  nulla eligendi quidem culpa aliquam, aut doloremque facilis maxime! Labore
-  aspernatur itaque autem repellendus. Impedit voluptates aliquam voluptatum
-  modi dicta labore. Nihil illo incidunt similique fugit a accusantium quis
-  harum hic possimus eum maiores, nulla repellat, ipsum explicabo neque. Maiores
-  sapiente nostrum, quae quisquam ea corporis earum harum laboriosam nobis
-  error. Distinctio facere, nesciunt quam quos vitae non impedit beatae,
-  explicabo culpa pariatur in sequi quia sed molestiae vero cum est! Deleniti
-  ullam hic officia id velit fuga delectus, quas sit. Nobis ea veritatis fugit
-  eos ullam illum ipsam excepturi! Ipsum quisquam eveniet sunt explicabo qui
-  ratione autem incidunt quaerat fugiat ipsam amet tenetur neque quod, molestias
-  labore a temporibus ducimus! Harum quisquam facilis eius accusantium,
-  molestias repellendus, exercitationem, cum qui repellat aut voluptatibus sunt.
-  Incidunt beatae laboriosam iusto iure facere sed odit est, excepturi, quo eos
-  vel cumque reprehenderit. Minus. soeriamo bene cavolo df cavolo
+<div class="container-xl homeContainer" [ngClass]="{ 'fix-padding': isOpen }">
+  <div *ngIf="!mostraElemento" class="input-group mb-3 my-search-container2">
+    <div class="input-group-prepend">
+      <span class="input-group-text my-search" id="basic-addon1"
+        ><i class="bi bi-search"></i
+      ></span>
+    </div>
+
+    <input
+      [(ngModel)]="search"
+      (ngModelChange)="getResultsSearch()"
+      type="text"
+      id="my-input-search2"
+      class="form-control form-control-body"
+      placeholder="Cerca tra i nostri film"
+      aria-label="Cerca"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <h2 *ngIf="searchRes.length > 0">I risultati della tua ricerca</h2>
+  <div *ngIf="searchRes.length > 0" class="container resultsContainer">
+    <div *ngFor="let fm of searchRes" class="over-visi">
+      <div class="card" style="width: 10rem">
+        <img class="card-img" [src]="getPosterPath(fm)" alt="{{ fm.title }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ fm.title }}</h5>
+          <a [routerLink]="'/film/' + fm.id" class="btn">Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-carousel
+    [carouselMedia]="media[2]"
+    [carouselTime]="time[1]"
+    [carouselLabel]="'Film in tendenza'"
+  ></app-carousel>
+  <app-carousel
+    [carouselMedia]="media[3]"
+    [carouselTime]="time[1]"
+    [carouselLabel]="'Serie Tv in tendenza'"
+  ></app-carousel>
+  <app-carousel
+    [carouselMedia]="media[4]"
+    [carouselTime]="time[1]"
+    [carouselLabel]="'Persone in tendenza'"
+  ></app-carousel>
 </div>

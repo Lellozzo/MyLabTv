@@ -1,0 +1,61 @@
+<div *ngIf="!loaded" id="spinner-box" class="text-center">
+  <div class="spinner-border text-light" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div *ngIf="attoriDett" class="contentContainer">
+  <div class="contentInfoContainerAttori">
+    <img
+      src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{
+        attoriDett.profile_path
+      }}"
+      data-src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{
+        attoriDett.profile_path
+      }}"
+      data-srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{
+        attoriDett.profile_path
+      }} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{
+        attoriDett.profile_path
+      }} 2x"
+      srcset="
+        https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{attoriDett.profile_path}} 1x,
+        https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{attoriDett.profile_path}} 2x
+      "
+      data-loaded="true"
+      alt="{{ attoriDett.profile_path }} immagine profilo"
+    />
+
+    <div class="content__data">
+      <h2 *ngIf="!deceduto">{{ attoriDett.name }} - {{ anniAttore }} anni</h2>
+      <span
+        ><i class="bi bi-star-fill"> Popolarità:</i>
+        {{ attoriDett.popularity }}</span
+      >
+      <h3 *ngIf=""><a href="{{ attoriDett.homepage }}">Sito Ufficiale</a></h3>
+
+      <h4>Bio</h4>
+      <p>{{ attoriDett.biography }}</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="!loaded" id="spinner-box" class="text-center">
+  <div class="spinner-border text-light" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div *ngIf="loaded" class="container sectionDetailContainer2">
+  <div *ngFor="let p of attoriDett.movie_credits.cast" class="over-visi">
+    <div class="card" style="width: 12rem">
+      <img
+        class="card-img"
+        [src]="'https://image.tmdb.org/t/p/w400' + p.poster_path"
+        alt="poster di {{ p.title }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ p.title }}</h5>
+
+        <a [routerLink]="'/film/' + p.id" class="btn">Info</a>
+      </div>
+    </div>
+  </div>
+</div>
